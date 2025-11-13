@@ -1,7 +1,7 @@
 # MoCam: Video Re-Camera via Structured Denoising Dynamics
 
 <div align="center">
-  <img src="static/images/mocam.png" alt="MoCam" width="200"/>
+  <img src="asset\mocam.png" alt="MoCam" width="200"/>
 </div>
 
 ## 📢 About
