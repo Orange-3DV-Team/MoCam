@@ -29,8 +29,7 @@ The following content of this project will be open-sourced at the appropriate ti
 ### ⏳ Coming Soon
 
 - **📝 Paper**: The research paper will be publicly available on arxiv soon.
-- **💾 Source Code**: The code will be release upon it being cleaned up.
-- **🔮 Pre-trained Models**: Pre-trained model weights will be released on HuggingFace.
+- **💾 Code & Pretrained Model**: The release of this code and pretrained model are subject to a corporate compliance and security review.
 
 
 ## 🎥 Preview
