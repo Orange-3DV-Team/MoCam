@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="MoCam">
+    <meta property="og:title" content="MoCam"/>
+    <meta property="og:description"
+          content="MoCam: Video Re-Camera via Structured Denoising Dynamics"/>
+    <meta property="og:url" content="URL OF THE WEBSITE"/>
+    <meta property="og:image" content="static/image/mocam.png"/>
+    <meta property="og:image:width" content="2412"/>
+    <meta property="og:image:height" content="1394"/>
+
+
+    <meta name="twitter:title" content="MoCam">
+    <meta name="twitter:description"
+          content="MoCam: Video Re-Camera via Structured Denoising Dynamics">
+    
+    <meta name="twitter:image" content="static/images/mocam.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="Video-to-Video">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>MoCam</title>
+    <link rel="icon" type="image/x-icon" href="static/images/mocam.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    More Research
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://orange-3dv-team.github.io/MoCha/" target="_blank">
+                        <span class="icon">
+                            <i class="fas fa-video"></i>
+                        </span>
+                        <span>MoCha: End-to-End Video Character Replacement without Structural Guidance</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h1 class="title is-2 publication-maintitle scroll-animate" style="margin-bottom: 0.01rem;">
+                        <img src="static/images/mocam.png" alt="MoCam" style="max-height: 180px;">
+                    </h1>
+                    <div class="column">
+                        <h2 class="title is-2">MoCam: Video Re-Camera via Structured Denoising Dynamics</h2>
+                    </div>
+
+                    <div class="is-size-5 publication-authors scroll-animate">
+                        <span class="author-block" style="font-size: 1.3em;">Orange Team</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links scroll-animate">
+                            <span class="link-block">
+                                <a href="#"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="ai ai-arxiv"></i>
+                                    </span>
+                                    <span>Paper (Coming Soon)</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://orange-3dv-team.github.io/MoCam"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>GitHub (Coming Soon)</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="#"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        🤗
+                                    </span>
+                                    <span>HF Model (Coming Soon)</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section hero" style="padding-top: 1rem; margin-top: -3rem;">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-justified">
+            <div class="column">
+                <div class="content" style="font-size: 1.2em; margin-bottom: 0.01rem;">
+                    <p>
+                        <strong>TL;DR:</strong> We propose MoCam, a method that enables stable video re-camera under extreme camera motion.  MoCam introduces structured denoising dynamics that guide generation from motion alignment to appearance refinement, producing coherent and photorealistic results.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <video controls muted autoplay loop style="max-width: 80%; height: auto;"><source src="content/long_video.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+        <div class="column">
+                <div class="content has-text-justified" style="font-size: 1.2em;">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<style>
+    .gifImage:hover {
+        opacity: 0.8;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        transform: scale(1.1);
+    }
+
+    .paused {
+        animation-play-state: paused;
+    }
+
+</style>
+
+
+<head>
+    <title>place gif</title>
+    <style>
+        .gif-container {
+            display: flex;
+        }
+
+        .gif {
+            width: 660px; 
+            height: 400px; 
+        }
+    </style>
+</head>
+
+
+<section class="section hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+            <h2 class="title is-3">Demo</h2>
+            </div>
+            <h2 class="content has-text-justified">
+                <p style="font-size: 1.4em;"></p>
+            </h2>
+
+
+            <style>
+                .video-item {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .video-item column {
+                    width: 48%; 
+                    object-fit: cover; 
+                    margin: 0 10px;
+                }
+
+
+                .item-gif-container {
+                    width: 48%; 
+                    margin: auto; 
+                }
+            </style>
+
+            <style>
+                .video-container {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+
+                .description {
+                    font-size: 1.2em;
+                    text-align: justify;
+                }
+
+                .content-description {
+                    margin-top: 10px; /* Add some space above the description */
+                }
+            </style>
+            <style>
+                .caption {
+                    margin-top: 8px; /* Space between the video and its caption */
+                }
+            </style>
+
+            <div style="display: flex; justify-content: center;align-items: center; height: 50px;">
+                <h3 class="title is-4"> Large-movement Trajectories</h3>
+            </div>
+
+
+            <div id="video-carousel-3" class="carousel unified-video-carousel">
+            <div class="item">
+              <video controls muted><source src="content/arc1.mp4" type="video/mp4"></video>
+            </div>
+            <div class="item">
+              <video controls muted><source src="content/arc2.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+            
+
+            <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                <h3 class="title is-4"> Complex Trajectories</h3>
+            </div>
+            
+
+            <div id="video-carousel-4" class="carousel unified-video-carousel">
+            <div class="item">
+              <video controls muted><source src="content/complex1.mp4" type="video/mp4"></video>
+            </div>
+            <div class="item">
+              <video controls muted><source src="content/complex2.mp4" type="video/mp4"></video>
+            </div>
+            <div class="item">
+                <video controls muted><source src="content/complex3.mp4" type="video/mp4"></video>
+              </div>
+          </div>
+
+
+            <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                <h3 class="title is-4"> Dolly Zoom</h3>
+            </div>
+
+
+            <div id="video-carousel" class="carousel unified-video-carousel">
+            <div class="item">
+              <video controls muted><source src="content/dolly2.mp4" type="video/mp4"></video>
+            </div>
+            <div class="item">
+              <video controls muted><source src="content/dolly1.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+
+            
+
+
+            <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+                <h3 class="title is-4"> Zoom In/Out</h3>
+            </div>
+
+
+            <div id="video-carousel-2" class="carousel unified-video-carousel">
+            <div class="item">
+              <video controls muted><source src="content/zoom_in.mp4" type="video/mp4"></video>
+            </div>
+            <div class="item">
+                <video controls muted><source src="content/zoom_out.mp4" type="video/mp4"></video>
+              </div>
+          </div>
+
+
+          <div style="display: flex; justify-content: center;align-items: center; height: 80px;">
+            <h3 class="title is-4"> Bullet Time</h3>
+        </div>
+
+        <div id="video-carousel" class="carousel unified-video-carousel">
+        <div class="item">
+          <video controls muted><source src="content/bullet.mp4" type="video/mp4"></video>
+        </div>
+        <div class="item">
+          <video controls muted><source src="content/bullet2.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3">BibTeX</h2>
+            </div>
+        </div>
+        <div class="columns">
+        <div class="column">
+    <pre style="font-size: 1.2em;"><code>@misc{orange2025mocam,
+  title={MoCam: Video Re-Camera via Structured Denoising Dynamics}, 
+  author={Orange Team},
+  year={2025},
+  url={https://orange-3dv-team.github.io/MoCam}, 
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content" style="text-align: center;">
+                    <p>
+                        This project is intended solely for academic research and effect demonstration.
+                    </p>
+
+                    <p>
+                        This page was built using the <a
+                            href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                            target="_blank">Template</a> which was adopted from the <a href="https://orange-3dv-team.github.io/MoCha/"
+                                                                                       target="_blank">MoCha</a> project
+                        page.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="static/js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        const videos = document.querySelectorAll('video');
+
+        const observer = new IntersectionObserver((entries) => {
+            
+            entries.forEach(entry => {
+                const video = entry.target;
+
+                if (!video.muted) {
+                    return; 
+                }
+
+                if (entry.isIntersecting) {
+                    
+                    video.play().catch(error => {
+                        console.error("Autoplay failed:", error);
+                    });
+                } else {
+                    
+                    video.pause();
+                }
+            });
+        }, {
+            root: null, 
+            rootMargin: '0px', 
+            threshold: 0.2 
+        });
+
+        
+        videos.forEach(video => {
+            observer.observe(video);
+        });
+    });
+</script>
+
+<script>
+    new BeforeAfter({
+        id: '#example1'
+    });
+    new BeforeAfter({
+        id: '#example2'
+    });
+    new BeforeAfter({
+        id: '#example3'
+    });
+    new BeforeAfter({
+        id: '#example4'
+    });
+    new BeforeAfter({
+        id: '#example6'
+    });
+    new BeforeAfter({
+        id: '#example7'
+    });
+
+</script>
+
+<script>
+    var gifImage = document.getElementById('gifImage');
+    var isPaused = false;
+
+    gifImage.addEventListener('mouseenter', function () {
+        gifImage.src = gifImage.src;
+        isPaused = true;
+    });
+
+    gifImage.addEventListener('mouseleave', function () {
+        if (isPaused) {
+            gifImage.src = gifImage.src;
+            isPaused = false;
+        }
+    });
+</script>
+
+<script>
+
+    const initializeCarouselWithVideoAutoplay = (selector, options) => {
+        const instances = bulmaCarousel.attach(selector, options);
+
+        if (instances && instances.length > 0) {
+            const videoCarousel = instances[0];
+            
+            
+            const allVideos = videoCarousel.element.querySelectorAll('video');
+
+            
+            const playCurrentVideo = (index) => {
+                allVideos.forEach(v => v.pause()); 
+
+                const activeVideo = allVideos[index];
+                if (activeVideo) {
+                    activeVideo.play().catch(error => {
+                        console.log("Video autoplay prevented by browser (Need user interaction):", error);
+                    });
+                }
+            };
+
+            setTimeout(() => {
+                const initialIndex = videoCarousel.state ? videoCarousel.state.currentItem : 0;
+                playCurrentVideo(initialIndex);
+            }, 500); 
+            videoCarousel.on('after:slide', (event) => {
+                
+                const newIndex = event.data.currentItem; 
+                playCurrentVideo(newIndex);
+            });
+
+            allVideos.forEach(video => {
+                video.addEventListener('play', () => {
+                    videoCarousel.stop(); 
+                });
+                video.addEventListener('ended', () => {
+                    
+                    videoCarousel.start(); 
+                    videoCarousel.next();
+                });
+            });
+        }
+    };
+
+    bulmaCarousel.attach('#results-carousel11', {
+        slidesToScroll: 1,
+        slidesToShow: 2,
+        infinite: true,
+        autoplay: false,
+    });
+    bulmaCarousel.attach('#results-carousel22', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        infinite: true,
+        autoplay: false,
+    });
+    bulmaCarousel.attach('#results-carousel44', {
+        slidesToScroll: 1,
+        slidesToShow: 2,
+        infinite: false,
+        autoplay: false,
+    });
+    initializeCarouselWithVideoAutoplay('#video-carousel', {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true, 
+        autoplaySpeed: 5000, 
+        navigation: true, 
+        pagination: true 
+    });
+    initializeCarouselWithVideoAutoplay('#video-carousel-2', {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true, 
+        autoplaySpeed: 5000, 
+        navigation: true, 
+        pagination: true 
+    });
+    initializeCarouselWithVideoAutoplay('#video-carousel-3', {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true, 
+        autoplaySpeed: 5000, 
+        navigation: true, 
+        pagination: true 
+    });
+    initializeCarouselWithVideoAutoplay('#video-carousel-4', {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true, 
+        autoplaySpeed: 5000, 
+        navigation: true, 
+        pagination: true 
+    });
+
+
+</script>
+
+<script>
+    document.getElementById('gifImage3').src = 'content/gifs/Item.gif';
+    document.getElementById('gifImage1').src = 'content/gifs/s1.gif';
+    document.getElementById('gifImage2').src = 'content/gifs/s2.gif';
+
+    // 图片资源路径
+    const images = [
+        'content/teaser/t3.gif',
+        'content/teaser/t4.gif',
+        'content/teaser/t1.gif',
+        'content/teaser/t2.gif'
+    ];
+
+    // 获取要插入图片的div
+    const group1 = document.getElementById('group1');
+    const group2 = document.getElementById('group2');
+
+    // 创建并插入前两张图片
+    for (let i = 0; i < 2; i++) {
+        const img = document.createElement('img');
+        img.src = images[i];
+        img.loading = 'lazy';
+        img.alt = '图片' + (i + 1);
+        group1.appendChild(img);
+    }
+
+    // 创建并插入后两张图片
+    for (let i = 2; i < images.length; i++) {
+        const img = document.createElement('img');
+        img.src = images[i];
+        img.loading = 'lazy';
+        img.alt = '图片' + (i + 1);
+        group2.appendChild(img);
+    }
+
+</script>
+
+
+
+
+<script type="text/javascript">
+var sc_project=13167665; 
+var sc_invisible=1; 
+var sc_security="001465d9"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13167665/0/001465d9/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+
+
+</body>
+
+
+</html>
