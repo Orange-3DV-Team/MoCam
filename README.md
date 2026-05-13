@@ -1,4 +1,4 @@
-# MoCam: Video Re-Camera via Structured Denoising Dynamics
+# MoCam: Unified Novel View Synthesis via Structured Denoising Dynamics
 
 <div align="center">
   <img src="static/images/mocam.png" alt="MoCam" width="200"/>
@@ -6,7 +6,7 @@
 
 ## 📢 About
 
-**TL;DR:** MoCam is a method that enables stable video re-camera under extreme camera motion. MoCam introduces structured denoising dynamics that guide generation from motion alignment to appearance refinement, producing coherent and photorealistic results.
+**TL;DR:** We propose MoCam, a method that enables robust novel view synthesis even with highly incomplete or distorted geometric priors. MoCam introduces structured denoising dynamics that guide the diffusion process from initial geometric alignment to final appearance refinement, producing coherent and photorealistic results for both static and dynamic scenes.
 
 **Features:** MoCam generates high-quality video re-camera effects under large camera movements, supporting:
 - Large-movement Trajectories
@@ -18,7 +18,7 @@
 ## 🔗 Links
 
 - 🌐 **Project Page**: [https://orange-3dv-team.github.io/MoCam](https://orange-3dv-team.github.io/MoCam)
-- 📄 **Paper**: Coming Soon
+- 📄 **Paper**: [arXiv:2605.12119](https://arxiv.org/abs/2605.12119)
 - 💻 **Code**: Coming Soon
 - 🤗 **Model**: Coming Soon
 
@@ -26,9 +26,12 @@
 
 The following content of this project will be open-sourced at the appropriate time:
 
+### ✅ Released
+
+- **📝 Paper**: Now available on [arXiv:2605.12119](https://arxiv.org/abs/2605.12119)!
+
 ### ⏳ Coming Soon
 
-- **📝 Paper**: The research paper will be publicly available on arxiv soon.
 - **💾 Code & Pretrained Model**: The release of this code and pretrained model are subject to a corporate compliance and security review.
 
 
